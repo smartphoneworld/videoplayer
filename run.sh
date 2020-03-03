@@ -36,6 +36,7 @@ function check_gpio () {
 				then
 					touch /tmp/door_is_closed
 			                /opt/vc/bin/tvservice --off
+					pkill omxplayer
 				fi
 				sleep .5
 			else
@@ -43,6 +44,7 @@ function check_gpio () {
 				then
 					echo clearing door state
 					rm  /tmp/door_is_closed
+				        /opt/vc/bin/tvservice -p
 				fi
 				sleep 30
 			fi
